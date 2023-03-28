@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react';
+
 import ShopingCart from './ShopingCart/ShopingCart';
 
 const Shop = (props) => {
-    const [carts,setCarts] = useState([])
-    useEffect(()=>{
-        fetch('products.json')
-        .then(res=>res.json())
-        .then(data=>setCarts(data))
-    },[])
+   const carts = props.carts
     return (
         <div className='flex gap-8 flex-wrap'>
             {

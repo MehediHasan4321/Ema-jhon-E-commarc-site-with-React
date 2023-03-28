@@ -1,8 +1,8 @@
 import React from 'react';
 
 const ShopingCart = (props) => {
-
     const {img,price,name,ratings,seller} = props.cart
+
     return (
         <div className='w-[350px] h-[550px] rounded border-2 border-gray-200 relative'>
             <img className='p-1 rounded' src={img ? img : 'images not found'} alt="Single Product images" />

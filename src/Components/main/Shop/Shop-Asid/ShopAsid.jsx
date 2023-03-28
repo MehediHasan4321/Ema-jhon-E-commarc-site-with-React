@@ -1,17 +1,34 @@
 import React from 'react';
-import AsidCart from './AsidCart/AsidCart';
 
 const ShopAsid = (props) => {
     const carts = props.cart
+    let totalPrice = 0
+    let quantity = 0
+    let totalShipingCost = 0
+    for (const product of carts) {
+        product.quantity = product.quantity || 1
+        totalPrice = totalPrice + product.price * product.quantity
+        totalShipingCost += product.shipping
+        quantity = quantity + product.quantity
+    }
+    const tax = totalPrice * 7 /100
+    const grundTotal = totalPrice + totalShipingCost + tax
     return (
-        <div className=' bg-amber-200 h-screen w-[350px] '>
+        <div className=' bg-amber-200 min-h-[550px] w-[350px] sticky top-0 '>
             <h1 className='text-2xl text-center pt-4'>Order Summary</h1>
-            <p className='mt-4 ml-4'>Total Order : {carts.length < 10 ? '0' + carts.length : carts.length}</p>
-            <div className='px-4 mt-5'>
-                {
-                    carts.map(cart=><AsidCart key={cart.id} cart={cart}/>)
-                }
+            <div className='p-4 space-y-4 text-lg font-semibold'>
+                <p>Total Order : {quantity}</p>
+                <hr className='border-black'/>
+                <p>Total Price : ${totalPrice.toFixed(2)}</p>
+                <hr className='border-black'/>
+                <p>Total Shiping Charge : ${totalShipingCost.toFixed(2)}</p>
+                <hr className='border-black'/>
+                <p>Tax : ${ tax.toFixed(2)}</p>
+                <hr className='border-black'/>
+                <h6 className='text-xl'>Payable Total : ${grundTotal.toFixed(2) }</h6>
+                <hr className='border-black'/>
             </div>
+
         </div>
     );
 };
