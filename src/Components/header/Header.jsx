@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../assets/Logo.svg'
-import Banner from './Banner/Banner';
 import './Header.css'
+import { Link } from 'react-router-dom';
 const Header = () => {
   
   const body = document.body;
@@ -23,14 +23,15 @@ const Header = () => {
         <nav className='container mx-auto flex justify-between items-center h-full'>
           <img src={logo} alt="" />
           <div className='text-white flex gap-8'>
-            <a href="#">Order</a>
-            <a href="#">Order Review</a>
-            <a href="#">Inventory Management</a>
-            <a href="/log-in">Log-in</a>
+            <Link  to='products'>Products</Link>
+            <Link to="/order">Order</Link>
+            <Link to="/orderReview">Order Review</Link>
+            <Link to="/inventory">Inventory Management</Link>
+            <Link to="/logIn">Log-in</Link>
+            <Link to={'/signUp'}>Sign Up</Link>
           </div>
         </nav>
       </div>
-      <Banner />
     </div>
   );
 };

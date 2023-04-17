@@ -21,7 +21,7 @@ const Main = () => {
             const saveProduct = carts.find(cart => cart.id === id)
             if (saveProduct) {
                 const quantity = savedCart[id]
-                saveProduct.quantity = quantity ===0 ? 1 : quantity
+                saveProduct.quantity = quantity
                 newCart.push(saveProduct)
             
             }
