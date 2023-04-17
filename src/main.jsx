@@ -11,6 +11,8 @@ import Main from './Components/main/Main'
 import cartProdcutLodaded from './CustomLoder/CustomLoder'
 import SignUp from './Components/SignUp/SignUp'
 import AuthProvider from './AuthProvider/AuthProvider'
+import CheckOut from './Components/CheckOut/CheckOut'
+import PrivetRoute from './PrivetRoute/PrivetRoute'
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/signUp',
         element: <SignUp />
+      },
+      {
+        path:'/checkOut',
+        element:<PrivetRoute><CheckOut/></PrivetRoute>
       }
     ]
   }
