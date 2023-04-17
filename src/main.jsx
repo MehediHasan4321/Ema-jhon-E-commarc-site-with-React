@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/checkOut',
-        element:<PrivetRoute><CheckOut/></PrivetRoute>
+        element:<PrivetRoute><CheckOut></CheckOut></PrivetRoute>
       }
     ]
   }

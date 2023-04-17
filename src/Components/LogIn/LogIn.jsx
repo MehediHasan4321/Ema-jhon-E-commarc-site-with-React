@@ -1,29 +1,33 @@
 import React, { useContext, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { authincation } from '../../AuthProvider/AuthProvider';
 
 const LogIn = () => {
-    const [success,setSuccess] = useState('')
-    const [error,setError] = useState('')
-    const {logInWithEmailPassword} = useContext(authincation)
-    const handleLogIN =e=>{
-        setTimeout(()=>{
+    const [success, setSuccess] = useState('')
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    const { logInWithEmailPassword } = useContext(authincation)
+    const handleLogIN = e => {
+        setTimeout(() => {
             setSuccess('')
             setError('')
-        },7000)
+        }, 7000)
         e.preventDefault()
-        const from = e.target;
-        const email = from.email.value;
-        const password = from.password.value
-        logInWithEmailPassword(email,password)
-        .then(()=>{
-            setSuccess("Your Log-In successful")
-        })
-        .catch(err=>{
-            setError(err.message)
-            console.log(err)
-        })
-        console.log(email,password)
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value
+        logInWithEmailPassword(email, password)
+            .then(() => {
+                setSuccess("Your Log-In successful")
+                navigate(from, { replace: true })
+                form.reset()
+            })
+            .catch(err => {
+                setError(err.message)
+
+            })
     }
 
 
@@ -62,8 +66,8 @@ const LogIn = () => {
                             <button className="btn btn-primary">Log In</button>
                         </div>
                         <label className="label">
-                                <Link to={'/signUp'} className="label-text-alt link link-hover">Don't have an account ? Sign Up</Link>
-                            </label>
+                            <Link to={'/signUp'} className="label-text-alt link link-hover">Don't have an account ? Sign Up</Link>
+                        </label>
                     </div>
                 </form>
             </div>

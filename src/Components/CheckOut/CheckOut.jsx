@@ -2,9 +2,9 @@ import React from 'react';
 
 const CheckOut = () => {
     return (
-        <div className='mt-24 container mx-auto'>
-            <h1 className='text-3xl'>This is Check Out Page</h1>
-        </div>  
+        <div className='container mx-auto mt-20'>
+            <h1 className='text-4xl'>this is checkout page</h1>
+        </div> 
     );
 };
 

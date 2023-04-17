@@ -31,7 +31,7 @@ const ShopAsid = ({cart}) => {
             </div>
             <div className=' w-full absolute bottom-0 p-2 space-y-2'>
                 <button className=' bg-pink-600 px-4 py-2  text-lg font-semibold text-white w-full rounded-md'>Clear All Cart <i class=" ml-2 fa-solid fa-trash"></i> </button>
-                <button className='bg-pink-600 px-4 py-2  text-lg font-semibold text-white w-full rounded-md'><Link to={'/checkOut'} className='w-full'>Process to checkout <i class=" ml-2 fa-solid fa-check"></i></Link></button>
+                <button className='bg-pink-600 px-4 py-2  text-lg font-semibold text-white w-full rounded-md'><Link to={'/checkOut'} className='w-full'> Process to checkout <i class=" ml-2 fa-solid fa-check"></i></Link></button>
             </div>
         </div>
     );

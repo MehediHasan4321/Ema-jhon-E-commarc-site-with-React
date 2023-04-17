@@ -8,14 +8,16 @@ const AuthProvider = ({children}) => {
     const auth = getAuth(app)
     const googleProvider = new GoogleAuthProvider()
 
-
     const signUpwithEmaiPass = (email,password)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
     const signUpWithGoogle = ()=>{
+        setLoading(true)
         return signInWithPopup(auth,googleProvider)
     }
     const logInWithEmailPassword = (email,password)=>{
+        setLoading(true)
        return signInWithEmailAndPassword(auth,email,password)
     }
     const logOut = ()=>{
